@@ -1,0 +1,188 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparan dengan opasitas 80% */
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.profile {
+    margin-bottom: 30px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid #4b8bf3;
+}
+
+h1 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+    color: #777;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeInUp 1.5s ease-out forwards 0.5s;
+}
+
+.link-button {
+    display: flex;
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
+    background-color: #4b8bf3;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Agar tombol bisa mengisi lebar kontainer */
+    box-sizing: border-box; /* Pastikan padding tidak mempengaruhi ukuran */
+}
+
+.link-button i {
+    margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+    font-size: 20px;
+}
+
+.link-button:hover {
+    background-color: #3578e5;
+}
+
+.link-button:active {
+    background-color: #2a5da7;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #181818;
+    color: #eaeaea;
+}
+
+body.dark-mode .container {
+    background-color: rgba(40, 40, 40, 0.8); /* Transparan dengan latar belakang gelap */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode h1,
+body.dark-mode p {
+    color: #eaeaea;
+}
+
+body.dark-mode .link-button {
+    background-color: #4b8bf3;
+    color: white;
+}
+
+body.dark-mode .link-button:hover {
+    background-color: #3578e5;
+}
+
+body.dark-mode .link-button:active {
+    background-color: #2a5da7;
+}
+
+/* Icon Styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .theme-toggle {
+    color: #eaeaea;
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    transition: transform 0.3s ease; /* Tambahkan transisi pada transformasi ikon */
+}
+
+body.dark-mode .theme-toggle i {
+    transform: rotate(180deg); /* Rotasi ikon ketika mode gelap */
+}
+
+
+/* Particles Canvas */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Menempatkan partikel di bawah konten */
+}
