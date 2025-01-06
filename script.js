@@ -2,11 +2,12 @@
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 
-// Memeriksa mode yang disimpan di localStorage
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    document.body.classList.add('dark-mode');
+// Cek localStorage untuk preferensi tema
+if (localStorage.getItem('dark-mode') === 'enabled' || localStorage.getItem('dark-mode') === null) {
+    document.body.classList.add('dark-mode'); // Aktifkan dark mode sebagai default
     themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun'); // Mengubah ikon menjadi Matahari
+    themeIcon.classList.add('fa-sun'); // Ubah ikon ke Matahari
+    localStorage.setItem('dark-mode', 'enabled'); // Simpan dark mode sebagai default
 }
 
 // Menambahkan event listener pada tombol toggle
@@ -14,17 +15,17 @@ themeToggle.addEventListener('click', () => {
     if (document.body.classList.contains('dark-mode')) {
         document.body.classList.remove('dark-mode');
         themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon'); // Mengubah ikon menjadi Bulan
-        localStorage.setItem('dark-mode', 'disabled');
+        themeIcon.classList.add('fa-moon'); // Ubah ikon ke Bulan
+        localStorage.setItem('dark-mode', 'disabled'); // Simpan preferensi mode terang
     } else {
         document.body.classList.add('dark-mode');
         themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun'); // Mengubah ikon menjadi Matahari
-        localStorage.setItem('dark-mode', 'enabled');
+        themeIcon.classList.add('fa-sun'); // Ubah ikon ke Matahari
+        localStorage.setItem('dark-mode', 'enabled'); // Simpan preferensi mode gelap
     }
 });
 
-// Particles.js Initialization
+//particle js
 particlesJS("particles-js", {
     particles: {
         number: {
